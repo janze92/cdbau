@@ -3,7 +3,6 @@
 if [[ -z "$1" ]]; then
   echo "Kerro paketin nimi ensimmäisenä muuttujana."
 else
-  #https://aur.archlinux.org/packages/google-chrome
   paketti=$(grep -A1 -P "%NAME%" $1 |grep -vP "%NAME%")
   versio=$(grep -A1 -P "%VERSION%" $1 |grep -vP "%VERSION%")
 
@@ -25,12 +24,4 @@ else
       /usr/bin/cdbau/./AutoBuild.sh $1 --nopgpkeypresent
     fi
   fi
-
-  echo  "Databasessa"
-  echo  $paketti
-  echo  $versio
-  echo  "AUR:rissa"
-  echo  $pkgname
-  echo  $pkgver
-
 fi

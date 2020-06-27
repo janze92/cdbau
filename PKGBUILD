@@ -26,5 +26,6 @@ package() {
   install -Dm 755  dbExtract.sh "$dest/dbExtract.sh"
   install -Dm 755  haePKGBUILD.sh "$dest/haePKGBUILD.sh"
   install -Dm 755  gpgRecive.py  "$dest/gpgRecive.py"
+  install -Dm 744  cdbau.conf "/etc/cdbau.conf"
 
 }

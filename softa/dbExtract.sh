@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
-
+source /etc/cdbau.conf
 SessionID="dbtool-$(uuidgen)"
-mkdir /tmp/$SessionID/
-cd /tmp/$SessionID
-#http://c602s/custom/custom.db
+mkdir $runningDIR/$SessionID/
+cd $runningDIR/$SessionID
 
-wget http://c602s/custom/custom.db
+wget $customServerRepoADDR
 mkdir purettu && cd purettu
-tar -xzf ../custom.db
+tar -xzf ../$dbNAME
 
 
 for i in ../purettu/*; do

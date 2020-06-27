@@ -1,20 +1,27 @@
-#!/bin/sh
-bolku=/usr/bin/cdbau #staattinen polku python scriptiä varten
+#!/usr/bin/env bash
+source /etc/cdbau.conf
 if [[ -n "$1" ]]; then
   if [[ $1 != --help ]]; then
     sudo pacman -Suy --noconfirm
     cd /tmp
-    if [[ $1 == cdbau ]]; then
-      #Lataa Gitistä itsensä.. :D
-      git clone https://github.com/janze92/cdbau.git
-    else # jos ei taho itteään nii kattellaa AUR
-      git clone https://aur.archlinux.org/$1.git
+    if [[ -d $1 ]]; then
+      if [[ $1 == cdbau ]]; then
+        #Lataa Gitistä itsensä.. :D
+        git fetch https://github.com/janze92/cdbau.git
+      else # jos ei taho itteään nii kattellaa AUR
+        git fetch https://aur.archlinux.org/$1.git
+      fi
+    else
+      if [[ $1 == cdbau ]]; then
+        #Lataa Gitistä itsensä.. :D
+        git clone https://github.com/janze92/cdbau.git
+      else # jos ei taho itteään nii kattellaa AUR
+        git clone https://aur.archlinux.org/$1.git
+      fi
     fi
+
     if [[ -d $1 ]]; then
       cd $1
-      ##########################################
-      #tarkista eka et siel edes on avaimia :D
-      ##########################################
       if [[ "$2" == "--nopgpkeypresent" || "$3" == "--nopgpkeypresent" ]]; then
         python $bolku/gpgRecive.py /tmp/$1/PKGBUILD
       fi
