@@ -9,9 +9,10 @@ mkdir purettu && cd purettu
 tar -xzf ../$dbNAME
 
 
-for i in /*; do
+for i in *; do
   missa=$(pwd)
-  /usr/bin/cdbau/haePKGBUILD.sh $missa/$i
+  #/usr/bin/cdbau/haePKGBUILD.sh $missa/$i
+  echo $missa/$i
 done
 
 
