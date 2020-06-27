@@ -3,8 +3,8 @@
 if [[ -z "$1" ]]; then
   echo "Kerro paketin nimi ensimmäisenä muuttujana."
 else
-  paketti=$(grep -A1 -P "%NAME%" $1 |grep -vP "%NAME%")
-  versio=$(grep -A1 -P "%VERSION%" $1 |grep -vP "%VERSION%")
+  paketti=$(grep -A1 -P "%NAME%" $1/desc |grep -vP "%NAME%")
+  versio=$(grep -A1 -P "%VERSION%" $1/desc |grep -vP "%VERSION%")
 
   cd $1
   wget https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=$paketti -O pakettish
@@ -19,9 +19,9 @@ else
   else
     #päivitetään
     if [[ -n validgpgkeys ]]; then
-      /usr/bin/cdbau/./AutoBuild.sh $1
+      /usr/bin/cdbau/./AutoBuild.sh $paketti
     else
-      /usr/bin/cdbau/./AutoBuild.sh $1 --nopgpkeypresent
+      /usr/bin/cdbau/./AutoBuild.sh $paketti --nopgpkeypresent
     fi
   fi
 fi

@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Vaatii
-
-source testvar.sh
-#https://aur.archlinux.org/packages/google-chrome
-
-echo $kissa $koira
+## lataa roska pyörimään
+## pyörimisen jälkeen runitaan repo-add joillain asetuksilla jottei jää kokoaikaa samat paketit databaseen..
+## ennen repo addia toki pitää siirtää uudet paketit repon kansioon. Jos ei mene automaattisesti...
