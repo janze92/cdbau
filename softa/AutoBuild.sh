@@ -3,7 +3,7 @@ source /etc/cdbau.conf
 if [[ -n "$1" ]]; then
   if [[ $1 != --help ]]; then
     sudo pacman -Suy --noconfirm
-    cd /tmp
+    cd $buildDir
     if [[ -d $1 ]]; then
       if [[ $1 == cdbau ]]; then
         #Lataa Gitistä itsensä.. :D

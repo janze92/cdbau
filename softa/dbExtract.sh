@@ -10,8 +10,8 @@ tar -xzf ../$dbNAME
 
 
 for i in ../purettu/*; do
-  missä=$(pwd)
-  /usr/bin/cdbau/haePKGBUILD.sh $missä/$i
+  missa=$(pwd)
+  /usr/bin/cdbau/haePKGBUILD.sh $missa/$i
 done
 
 
