@@ -6,7 +6,7 @@ if [[ -n "$1" ]]; then
     cd /tmp
     if [[ $1 == cdbau ]]; then
       #Lataa Gitistä itsensä.. :D
-      
+      git clone git@github.com:janze92/cdbau.git
     else # jos ei taho itteään nii kattellaa AUR
       git clone https://aur.archlinux.org/$1.git
     fi

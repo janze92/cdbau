@@ -13,9 +13,13 @@ depends=(
 
 source=("$pkgname::git+https://github.com/janze92/cdbau")
 
+md5sums=('SKIP')
+
 package() {
 	bindestdir="$pkgdir/usr/bin"
 	dest="$bindestdir/cdbau"
+
+  cd softa
 
   install -Dm 755  cdbau.sh "$dest/cdbau.sh"
   install -Dm 755  AutoBuild.sh "$dest/AutoBuild.sh"
