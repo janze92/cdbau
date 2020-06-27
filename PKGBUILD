@@ -4,7 +4,7 @@ pkgver=0.1
 pkgrel=1
 pkgdesc="CustomDataBaseAutoUpdater shell scripts what \
 should check and fetch AUR updates to own repository"
-arch=any
+arch=('any')
 depends=(
   'git'
   'wget'
@@ -19,7 +19,7 @@ package() {
 	bindestdir="$pkgdir/usr/bin"
 	dest="$bindestdir/cdbau"
 
-  cd softa
+  cd cdbau/softa
 
   install -Dm 755  cdbau.sh "$dest/cdbau.sh"
   install -Dm 755  AutoBuild.sh "$dest/AutoBuild.sh"
