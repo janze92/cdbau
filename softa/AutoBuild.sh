@@ -28,11 +28,7 @@ if [[ -n "$1" ]]; then
       if [[ skipAll == $2 ]]; then
         makepkg -s --noconfirm --skippgpcheck
       elif [[ -z "$2" ]]; then
-
-        echo "$(pwd)"
-        echo "makepkg -s"
-
-        #makepkg -s
+        makepkg -s
       fi
     else
       echo "vituks man, kansiota jossa pitäs olla jotai ei ole!"

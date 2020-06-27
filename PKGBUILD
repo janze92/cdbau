@@ -6,9 +6,9 @@ pkgdesc="CustomDataBaseAutoUpdater shell scripts what \
 should check and fetch AUR updates to own repository"
 arch=('any')
 depends=(
+  'bash'
   'git'
   'wget'
-  'still-alpha' # just saying that this is not yet working thing..
 )
 
 source=("$pkgname::git+https://github.com/janze92/cdbau")
@@ -16,6 +16,7 @@ source=("$pkgname::git+https://github.com/janze92/cdbau")
 md5sums=('SKIP')
 
 package() {
+
 	bindestdir="$pkgdir/usr/bin"
 	dest="$bindestdir/cdbau"
 
@@ -26,6 +27,6 @@ package() {
   install -Dm 755  dbExtract.sh "$dest/dbExtract.sh"
   install -Dm 755  haePKGBUILD.sh "$dest/haePKGBUILD.sh"
   install -Dm 755  gpgRecive.py  "$dest/gpgRecive.py"
-  install -Dm 744  cdbau.conf "/etc/cdbau.conf"
+  install -Dm 744  cdbau.conf "$pkgdir/etc/cdbau.conf"
 
 }
