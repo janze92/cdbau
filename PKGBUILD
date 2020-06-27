@@ -9,6 +9,7 @@ depends=(
   'bash'
   'git'
   'wget'
+  'python'
 )
 
 source=("$pkgname::git+https://github.com/janze92/cdbau")

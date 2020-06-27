@@ -11,8 +11,7 @@ if [[ -e $dbNAME ]]; then
 
   for i in *; do
     missa=$(pwd)
-    #/usr/bin/cdbau/haePKGBUILD.sh $missa/$i
-    echo $missa/$i
+    /usr/bin/cdbau/haePKGBUILD.sh $missa/$i
   done
 fi
 
