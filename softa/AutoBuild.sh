@@ -6,21 +6,25 @@ if [[ -n "$1" ]]; then
     cd /tmp
     if [[ $1 == cdbau ]]; then
       #Lataa Gitistä itsensä.. :D
-      git clone git@github.com:janze92/cdbau.git
+      git clone https://github.com/janze92/cdbau.git
     else # jos ei taho itteään nii kattellaa AUR
       git clone https://aur.archlinux.org/$1.git
     fi
-    cd $1
-    ##########################################
-    python $bolku/gpgRecive.py /tmp/$1/PKGBUILD
-    if [[ skipAll == $2 ]]; then
-      makepkg -s --noconfirm --skippgpcheck
-    elif [[ -z "$2" ]]; then
+    if [[ -d $1 ]]; then
+      cd $1
+      ##########################################
+      python $bolku/gpgRecive.py /tmp/$1/PKGBUILD
+      if [[ skipAll == $2 ]]; then
+        makepkg -s --noconfirm --skippgpcheck
+      elif [[ -z "$2" ]]; then
 
-      echo "$(pwd)"
-      echo "makepkg -s"
+        echo "$(pwd)"
+        echo "makepkg -s"
 
-      #makepkg -s
+        #makepkg -s
+      fi
+    else
+      echo "vituks man, kansiota jossa pitäs olla jotai ei ole!"
     fi
   fi
 fi
