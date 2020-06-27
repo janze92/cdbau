@@ -19,7 +19,11 @@ else
     echo "sul on jo uudempi o.O"
   else
     #päivitetään
-    /usr/bin/cdbau/./AutoBuild.sh $1
+    if [[ -n validgpgkeys ]]; then
+      /usr/bin/cdbau/./AutoBuild.sh $1
+    else
+      /usr/bin/cdbau/./AutoBuild.sh $1 --nopgpkeypresent
+    fi
   fi
 
   echo  "Databasessa"

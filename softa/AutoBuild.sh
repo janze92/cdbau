@@ -13,7 +13,11 @@ if [[ -n "$1" ]]; then
     if [[ -d $1 ]]; then
       cd $1
       ##########################################
-      python $bolku/gpgRecive.py /tmp/$1/PKGBUILD
+      #tarkista eka et siel edes on avaimia :D
+      ##########################################
+      if [[ "$2" == "--nopgpkeypresent" || "$3" == "--nopgpkeypresent" ]]; then
+        python $bolku/gpgRecive.py /tmp/$1/PKGBUILD
+      fi
       if [[ skipAll == $2 ]]; then
         makepkg -s --noconfirm --skippgpcheck
       elif [[ -z "$2" ]]; then
