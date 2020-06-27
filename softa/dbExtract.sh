@@ -11,9 +11,8 @@ tar -xzf ../custom.db
 
 
 for i in ../purettu/*; do
-  cat $i/desc
   missä=$(pwd)
-  #kutsu haePKGBUILD.sh missä/$i
+  /usr/bin/cdbau/haePKGBUILD.sh $missä/$i
 done
 
 

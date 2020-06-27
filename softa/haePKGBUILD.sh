@@ -13,11 +13,13 @@ else
 
   if [[ "$versio" == "$pkgver" ]]; then
     # Ei päivitettävää
+    echo "Ei tehtävää."
   elif [[ "$versio" > "$pkgver" ]]; then
     # DB uudempi kun aur versio o.O
+    echo "sul on jo uudempi o.O"
   else
     #päivitetään
-    #kutsua sitä valmista scriptiä tai lisätä se tähän..
+    /usr/bin/cdbau/./AutoBuild.sh $1
   fi
 
   echo  "Databasessa"

@@ -8,7 +8,7 @@ arch=('any')
 depends=(
   'git'
   'wget'
-  'still-alpha'
+  'still-alpha' # just saying that this is not yet working thing..
 )
 
 source=("$pkgname::git+https://github.com/janze92/cdbau")

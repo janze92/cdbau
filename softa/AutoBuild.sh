@@ -1,5 +1,5 @@
 #!/bin/sh
-bolku=$(pwd) #staattinen polku python scriptiä varten
+bolku=/usr/bin/cdbau #staattinen polku python scriptiä varten
 if [[ -n "$1" ]]; then
   if [[ $1 != --help ]]; then
     sudo pacman -Suy --noconfirm

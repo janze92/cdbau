@@ -1,1 +1,8 @@
 CustomDataBaseAutoUpdater
+
+This will eventually fetch custom.db from your custom archlinux repository
+and compare package version from AUR to your versions. If aur version is newer
+will try download and build from aur. After that all packages are complete
+should update custom.db file for repository.
+
+Not yet doing that tho.. :D
