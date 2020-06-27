@@ -5,19 +5,23 @@ mkdir $runningDIR/$SessionID/
 cd $runningDIR/$SessionID
 
 wget $customServerRepoADDR
-mkdir purettu && cd purettu
-tar -xzf ../$dbNAME
+if [[ -e $dbNAME ]]; then
+  mkdir purettu && cd purettu
+  tar -xzf ../$dbNAME
 
+  for i in *; do
+    missa=$(pwd)
+    #/usr/bin/cdbau/haePKGBUILD.sh $missa/$i
+    echo $missa/$i
+  done
+fi
 
-for i in *; do
-  missa=$(pwd)
-  #/usr/bin/cdbau/haePKGBUILD.sh $missa/$i
-  echo $missa/$i
-done
 
 
 if [[ "--debug" == "$1" ]]; then
-  echo $SessionID
+  echo "Repo address: $customServerRepoADDR"
+  echo "Running dir: $runningDIR"
+  echo "Session dir: $SessionID"
   ls -la
   pwd
 fi
